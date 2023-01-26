@@ -59,6 +59,9 @@ unit class Doc::TypeGraph::Viz;
 has @.types;
 has $.dot-hints;
 has $.url-base    = '/type/';
+has $.extension   = '';
+has $.prefix      = 'type-graph-';
+has $.debug       = True;
 has $.rank-dir    = 'BT';
 has $.role-color  = '#6666FF';
 has $.enum-color  = '#33BB33';
@@ -138,7 +141,7 @@ END
             when ‘enum’ { $.enum-color  }
             default     { $.class-color }
         }
-        @dot.append: “    "$type.name()" [color="$color", fontcolor="$color", href="{$.url-base ~ $type.name }", fontname="FreeSans"];\n”;
+        @dot.append: “    "$type.name()" [color="$color", fontcolor="$color", href="{$.url-base ~ $type.name ~ $.extension }", fontname="FreeSans"];\n”;
     }
 
     @dot.append: "\n    // Superclasses\n";
@@ -172,7 +175,7 @@ method to-file ($file, :$format = 'svg', :$size --> Promise:D) {
     die "bad filename '$file'" unless $file;
     my $graphvizzer = ( $file ~~ /Metamodel\:\: || X\:\:Comp/ )??'neato'!!'dot';
     my $valid-file-name = $file.subst(:g, /\:\:/,"");
-    spurt $valid-file-name ~ ‘.dot’, self.as-dot(:$size).encode; # raw .dot file for debugging
+    spurt( $valid-file-name ~ ‘.dot’, self.as-dot(:$size).encode) if $.debug; # raw .dot file for debugging
     my $dot = Proc::Async.new(:w, $graphvizzer, '-T', $format, '-o', $valid-file-name);
     my $promise = $dot.start;
     await($dot.write(self.as-dot(:$size).encode));
@@ -186,7 +189,7 @@ method write-type-graph-images(:$type-graph, :$path, :$force) {
     for $type-graph.sorted -> $type {
         FIRST my @type-graph-images;
 
-        my $this-path = "{$path}/type-graph-$type.svg";
+        my $this-path = "{$path}/{ $.prefix }$type.svg";
 
         my $dest = $this-path.IO;
         if $dest.e and ! $force {
