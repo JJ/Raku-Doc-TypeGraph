@@ -3,7 +3,7 @@ use Test;
 
 use Doc::Type;
 
-plan *;
+plan 6;
 
 #    A
 #  /   \
@@ -30,13 +30,14 @@ my $E = Doc::Type.new(:name("E"));
 my $F = Doc::Type.new(:name("F"));
    $F.super = [$D, $E];
 
-subtest {
+#subtest {
+#    plan 6;
     is $A.mro».name, ["A"]                         , "No inheritance";
     is $B.mro».name, ["B", "A"]                    , "Single inheritance";
     is $C.mro».name, ["C", "A"]                    , "Single inheritance 2";
     is $D.mro».name, ["D", "B", "C", "A"]          , "Double inheritance";
     is $E.mro».name, ["E", "B", "C", "A"]          , "Double inheritance 2";
     is $F.mro».name, ["F", "D", "E", "B", "C", "A"], "All in one";
-}, "Mro and c3 merge algorithm";
+#}, "Mro and c3 merge algorithm";
 
 done-testing;
