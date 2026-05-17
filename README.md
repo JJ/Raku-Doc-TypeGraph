@@ -38,7 +38,7 @@ You will need to have `graphviz` installed to generate the graphs; it uses
     packagetype typename[role-signature] is typename[role-signature] # inheritance
     packagetype typename[role-signature] does typename[role-signature] # roles
 
-    [ Another cateogory ]
+    [ Another category ]
 
 - Supported categories: `Metamodel`, `Domain-specific`, `Basic`, `Composite`, `Exceptions` and `Core`.
 
