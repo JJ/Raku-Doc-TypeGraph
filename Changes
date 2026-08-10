@@ -1,3 +1,9 @@
+2026-08-10 Richard Hainsworth <@finanalyst>
+
+    * change all .t files to .rakutest
+    * make -debug False by default
+    * remove call to deprecated 'neato'
+
 2019-07-24  Antonio Gamiz  <@antoniogamiz>
 
 	* lib/Perl6/TypeGraph/Viz.pm6 (Perl6): Fix --force option to avoid generate typegraph representations.
