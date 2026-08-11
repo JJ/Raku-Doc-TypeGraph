@@ -96,11 +96,9 @@ method c3_merge(@merge_list) {
         $cand_count++;
         # search cyclic inheritance. If it's found then reject the candidate
         for @merge_list {
-            say "List $_";
             next if $_ === @cand_list;
             for 1..+$_ -> $cur_pos {
                 if $_[$cur_pos] === $cand_class {
-                    say "$cur_pos, $cand_class";
                     $rejected = 1;
                     last;
                 }
