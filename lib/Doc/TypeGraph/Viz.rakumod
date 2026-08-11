@@ -68,7 +68,7 @@ has $.node-style  = Nil;
 has $.node-soft-limit = 20;
 has $.node-hard-limit = 50;
 has $.extension = '';
-has $.debug = True;
+has $.debug = False;
 has $.prefix = 'type-graph-';
 
 method new-for-type ($type, *%attrs) {
@@ -173,7 +173,7 @@ method to-file ($file, :$format = 'svg', :$size --> Promise:D) {
         run 'dot', '-V', :!err or die 'dot command failed! (did you install Graphviz?)';
     }
     die "bad filename '$file'" unless $file;
-    my $graphvizzer = ( $file ~~ /Metamodel\:\: || X\:\:Comp/ )??'neato'!!'dot';
+    my $graphvizzer = 'dot';
     my $valid-file-name = $file.subst(:g, /\:\:/,"");
     spurt( $valid-file-name ~ ‘.dot’, self.as-dot(:$size).encode) if $.debug; # raw .dot file for debugging
     my $dot = Proc::Async.new(:w, $graphvizzer, '-T', $format, '-o', $valid-file-name);

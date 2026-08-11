@@ -26,6 +26,11 @@ All types are represented using a `Doc::Type` object. Categories are just
 descriptive and are not really used in the generation of graphs. They will
 probably be eliminated in later iterations of this library.
 
+# Change from v 2.2.1.1-
+
+1. Does not use `neato` algorithm at all, which is not supported in later versions of GraphViz
+2. `debug` flag defaults to `False`, and so *.dot* files are not generated.
+
 # Installation
 
 You will need to have `graphviz` installed to generate the graphs; it uses

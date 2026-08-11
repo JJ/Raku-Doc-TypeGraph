@@ -1,36 +1,39 @@
 {
-  "authors": [
-    "AntonioGamiz",
-    "moritz",
-    "JJ Merelo",
-    "Raku team"
-  ],
-  "build-depends": [],
-  "auth": "zef:jjmerelo",
-  "api": "2",
-  "depends": ["dot:from<bin>"],
-  "description": "Parse a type graph description file",
-  "license": "Artistic-2.0",
-  "name": "Doc::TypeGraph",
-  "raku": "6.d",
-  "provides": {
-    "Doc::Type": "lib/Doc/Type.pm6",
-    "Doc::TypeGraph": "lib/Doc/TypeGraph.pm6",
-    "Doc::TypeGraph::Viz": "lib/Doc/TypeGraph/Viz.pm6",
-    "Doc::TypeGraph::Decl": "lib/Doc/TypeGraph/Decl.pm6",
-    "Doc::TypeGraph::DeclActions": "lib/Doc/TypeGraph/DeclActions.pm6"
-  },
-  "resources": [
-    "data/type-graph.txt"
-  ],
-  "source-url": "https://github.com/JJ/Raku-Doc-TypeGraph.git",
-  "tags": [
-    "documentation",
-    "configuration",
-    "introspection"
-  ],
-  "test-depends": [
-    "Test::META:ver<0.0.17+>"
-  ],
-  "version": "2.2.1.1"
+    "name": "Doc::TypeGraph",
+    "description": "Parse a type graph description file",
+    "version": "2.3.0",
+    "raku": "6.d",
+    "authors": [
+        "AntonioGamiz",
+        "moritz",
+        "JJ Merelo",
+        "finanalyst",
+        "Raku team"
+    ],
+    "auth": "zef:finanalyst",
+    "depends": [
+        "dot:from<bin>"
+    ],
+    "build-depends": [],
+    "test-depends": [
+        "Test::META:ver<0.0.17+>"
+    ],
+    "provides": {
+        "Doc::Type": "lib/Doc/Type.rakumod",
+        "Doc::TypeGraph": "lib/Doc/TypeGraph.rakumod",
+        "Doc::TypeGraph::Viz": "lib/Doc/TypeGraph/Viz.rakumod",
+        "Doc::TypeGraph::Decl": "lib/Doc/TypeGraph/Decl.rakumod",
+        "Doc::TypeGraph::DeclActions": "lib/Doc/TypeGraph/DeclActions.rakumod"
+    },
+    "resources": [
+        "data/type-graph.txt"
+    ],
+    "license": "Artistic-2.0",
+    "tags": [
+        "documentation",
+        "configuration",
+        "introspection"
+    ],
+    "api": "2",
+    "source-url": "https://github.com/finanalyst/Raku-Doc-TypeGraph.git"
 }
