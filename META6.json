@@ -1,7 +1,7 @@
 {
     "name": "Doc::TypeGraph",
     "description": "Parse a type graph description file",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "raku": "6.d",
     "authors": [
         "AntonioGamiz",
@@ -10,7 +10,7 @@
         "finanalyst",
         "Raku team"
     ],
-    "auth": "zef:finanalyst",
+    "auth": "zef:raku-community-modules",
     "depends": [
         "dot:from<bin>"
     ],
@@ -35,5 +35,5 @@
         "introspection"
     ],
     "api": "2",
-    "source-url": "https://github.com/finanalyst/Raku-Doc-TypeGraph.git"
+    "source-url": "https://github.com/raku-community-modules/Raku-Doc-TypeGraph.git"
 }

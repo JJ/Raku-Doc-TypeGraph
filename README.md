@@ -1,5 +1,3 @@
-[![Test](https://github.com/JJ/Raku-Doc-TypeGraph/actions/workflows/test.yaml/badge.svg)](https://github.com/JJ/Raku-Doc-TypeGraph/actions/workflows/test.yaml)
-
 # NAME
 
 Doc::TypeGraph - Parse a description of the types for documentation.
